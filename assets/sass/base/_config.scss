@@ -1,0 +1,87 @@
+/* ========================================================
+config - サイト共通設定
+======================================================== */
+/*  共通カラー変数
+/* -------------------------------------------------------- */
+/* サイト別 */
+$color01: #2F2F2F; // key1
+$color02: #404040; // key2
+$color03: #EBFFFB; // key3
+$color04: #FFFFEB; // key4
+$color05: #FFEBEB; // key5
+$color06: #A5A5A5; // key6
+$color07: #878787; // key7
+$color08: #FBFFC8; // key8
+$color09: #FFF2EE; // key9
+$color10: #FAEEFF; // key10
+$color11: #FFF6A0; // key11
+$color12: #A8FFEE; // key12
+$color13: #F9FFD4; // key13
+$color14: #9B9B9B; // key14
+$color15: #FFFEEE; // key15
+$color16: #EDEDED; // key16
+$color17: #F9FFD5; // key17
+$color18: #C4C4C4; // key18
+$color19: #FEFFF5; // key19
+$color20: #FFF0F0; // key20
+$color21: #FF1818; // key21
+
+/* モノトーン */
+$black: #000;
+$white: #fff;
+
+//画像相対パス #{$imgPath}
+$imgPath: "../img/"; //AMP用 img要素書き換え #{$img}
+$img: "img";
+
+// フォント
+@mixin font1(){
+	font-family: 'Yu Gothic Medium', 'Yu Gothic', 'Meiryo', sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin font2() {
+	font-family: 'Zen Maru Gothic' , 'M PLUS Rounded 1c', sans-serif;
+}
+
+@mixin font3() {
+	font-family: 'Lato', sans-serif;
+}
+
+
+// 両端揃えの設定 @include justify();
+@mixin justify() {
+	text-align: justify;
+	text-justify: inter-ideograph;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+@mixin flex($wrap: nowrap, $justify: null, $item: null) {
+	display: flex;
+	@if $wrap != null {
+		flex-wrap: $wrap;
+	}
+	@if $justify != null {
+		justify-content: $justify;
+	}
+	@if $item != null {
+		align-items: $item;
+	}
+	box-sizing: border-box;
+}
+
+// breakepoint
+$breakpoints: (
+	"md-ip5": "screen and (max-width: 375px)",
+	"sp": "screen and (max-width: 639px)",
+	"md-ipad": "screen and (min-width: 640px) and (max-width: 959px)",
+	"md": "screen and (min-width: 960px)",
+)!default;
+// @mixinの定義
+@mixin mq($breakpoint: md) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}

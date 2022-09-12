@@ -1,0 +1,435 @@
+@charset "UTF-8";
+// scroll-blk 
+.pagetop {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid $color02;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  background-color: $color05;
+  transition: 1s background-color;
+  -webkit-transition: 1s background-color;
+  -moz-transition: 1s background-color;
+  border-radius: 4px;
+
+  @include mq(sp) {
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+
+  @include mq() {
+    right: 24px;
+    width: 32px;
+    height: 32px;
+  }
+
+  @include mq(md-ipad) {
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .scroll-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: url("#{$imgPath}up_arrow_icon.png") no-repeat center;
+      background-size: contain;
+      content: "";
+      transform: translate(-50%, -50%);
+      transition: all .6s;
+
+      @include mq(sp) {
+        width: 8px;
+        height: 9px;
+      }
+
+      @include mq() {
+        width: 11px;
+        height: 12px;
+      }
+
+      @include mq(md-ipad) {
+        width: 10px;
+        height: 11px;
+      }
+    }
+  }
+
+  &:hover {
+    @include mq() {
+      background-color: $color13;
+      opacity: 1;
+    }
+  }
+}
+
+// footer
+.footer {
+  background: linear-gradient(85.35deg, $color03 16.37%, $color08 108.44%);
+  border-top: 2px solid $color02;
+
+  @include mq(sp) {
+    margin-bottom: 7.3rem;
+    padding: 3.2rem 0 2.4rem;
+  }
+
+  @include mq() {
+    padding: 4rem 0 2.4rem;
+  }
+
+
+  @include mq(md-ipad) {
+    padding: 4rem 0 2.4rem;
+  }
+
+  .ft-row {
+    display: flex;
+    position: relative;
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+    }
+
+    @include mq(md-ipad) {
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+    }
+
+    .ft-left {
+      @include mq() {
+        width: 30%;
+      }
+
+      .logo-gp {
+        @include mq(sp) {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        @include mq(md-ipad) {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .ft-txt {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+
+        .ft-logo {
+          color: $color02;
+          font-size: 2.4rem;
+          opacity: 0.5;
+
+          @include mq(sp) {
+            margin-top: 1.2rem;
+          }
+
+          @include mq() {
+            margin: 1.2rem 0 2.4rem;
+          }
+
+          @include mq(md-ipad) {
+            margin-top: 1.5rem;
+          }
+        }
+      }
+
+      .ft-link-gp {
+        li {
+          margin-bottom: 0.5rem;
+
+          .ft-link {
+            display: inline-block;
+            position: relative;
+            padding-right: 1.8rem;
+            color: $color01;
+            font-size: 1.2rem;
+            font-weight: 700;
+
+            &::after {
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 9px;
+              height: 8.8px;
+              background: url("#{$imgPath}small_arrow_icon.png") no-repeat center;
+              background-size: contain;
+              content: "";
+              transform: translateY(-50%);
+              transition: all .4s;
+            }
+
+            &:hover {
+              opacity: 1;
+
+              &::after {
+                right: -15px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .ft-right {
+      @include mq(sp) {
+        margin-top: 25%;
+      }
+
+      @include mq() {
+        display: flex;
+        width: 70%;
+      }
+
+      @include mq(md-ipad) {
+        margin-top: 15%;
+      }
+
+      .nurse-txt {
+        line-height: 1;
+        font-size: 2.4rem;
+        font-weight: 400;
+        @include font2();
+
+        @include mq(sp) {
+          margin-bottom: 1.6rem;
+        }
+
+        @include mq() {
+          width: 45%;
+          max-width: 112px;
+        }
+
+        @include mq(md-ipad) {
+          margin-bottom: 2rem;
+        }
+
+        span {
+          margin-right: 0.4rem;
+          font-size: 1.6rem;
+        }
+      }
+
+      .ft-nav {
+        .nav-item {
+          .nav-ttl {
+            font-size: 1.4rem;
+            font-weight: 700;
+          }
+
+          .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0.8rem 0 2.4rem;
+
+            li {
+              position: relative;
+              
+              @include mq(sp) {
+                padding-right: 1.3rem;
+              }
+      
+              @include mq() {
+                padding-right: 1.3rem;
+              }
+      
+              @include mq(md-ipad) {
+                padding-right: 1rem;
+              }
+
+              a {
+                color: $color01;
+                font-size: 1.2rem;
+                letter-spacing: 0;
+              }
+
+              &:not(:last-child) {
+                &::after {
+                  position: absolute;
+                  top: 1px;
+                  content: "／";
+                  @include mq(sp) {
+                    right: -1px;
+                  }
+          
+                  @include mq() {
+                    right: -3px;
+                  }
+          
+                  @include mq(md-ipad) {
+                    right: 0px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    @include font3();
+
+    @include mq(sp) {
+      margin-top: 6.4rem;
+    }
+
+    @include mq() {
+      margin-top: 2.4rem;
+    }
+
+    @include mq(md-ipad) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+// gnav-menu 
+.gnav-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.08);
+  background: $white;
+
+  @include mq(md-ipad) {
+    display: none;
+  }
+
+  .gnav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    li {
+      width: 20%;
+
+      a {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 1.2rem 0;
+        box-sizing: border-box;
+        color: $color07;
+        font-size: 1.1rem;
+        text-align: center;
+
+        &:hover,&:active,&:focus {
+          opacity: 1;
+        }
+
+        .info-icon {
+          display: block;
+          margin: 0 auto 0.8rem;
+          max-width: 24px;
+        }
+      }
+    }
+  }
+}
+
+// detail page
+.detail-page {
+  .footer {
+    @include mq() {
+      margin-bottom: 8.8rem;
+    }
+    @include mq(md-ipad) {
+      margin-bottom: 7rem;
+    }
+  }
+  .gnav-menu {
+    @include mq(sp) {
+      display: none;
+    }
+  }
+
+  .ft-btn-list {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.08);
+    background: $white;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+
+    @include mq(sp) {
+      padding: 1.5rem 0.8rem;
+    }
+
+    @include mq() {
+      padding: 1.6rem;
+    }
+
+    @include mq(md-ipad) {
+      padding: 1rem;
+    }
+
+    .btn {
+      margin-top: 0;
+
+      @include mq(sp) {
+        justify-content: center;
+        width: 48%;
+        height: 44px;
+        font-size: 1.2rem;
+      }
+
+      @include mq(md-ipad) {
+        justify-content: center;
+        width: 33%;
+        height: 50px;
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .btn-arrow {
+        @include mq(sp) {
+          display: none;
+        }
+
+        @include mq(md-ipad) {
+          display: none;
+        }
+      }
+    }
+
+    .btn-theme4 {
+      @include mq(sp) {
+        margin-left: 0.7rem;
+      }
+
+      @include mq() {
+        margin-left: 1.6rem;
+      }
+
+      @include mq(md-ipad) {
+        margin-left: 1.2rem;
+      }
+    }
+  }
+}
